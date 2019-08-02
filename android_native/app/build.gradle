@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+def keystoreFile = project.file('keystore.properties')
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystoreFile))
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.flutter.hybrid.demo"
+        minSdkVersion 16//flutter要求最低sdk是16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['keyPassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //flutter开发还需要加入如下代码
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation project(':flutter')
+}

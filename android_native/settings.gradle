@@ -1,0 +1,7 @@
+include ':app'
+//加入如下代码，可能Binding会显示红色，as提示让你import一个包，不必理会
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        'module_flutter\\.android\\include_flutter.groovy'
+))
