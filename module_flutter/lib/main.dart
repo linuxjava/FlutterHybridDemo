@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'widget/eventchannel_demo.dart';
 import 'widget/methodchannel_demo.dart';
+import 'widget/basic_message_channel_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,6 +43,8 @@ class HomeWidget extends StatelessWidget {
         return EventChannelWidget();
       case 'MethodChannel':
         return MethodChannelWidget();
+      case 'BasicMessageChannel':
+        return BasicMessageChannelWidget();
       default:
         return Container(
           child: Center(

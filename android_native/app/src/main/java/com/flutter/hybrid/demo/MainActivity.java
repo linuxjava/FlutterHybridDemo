@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void onClick3(View view) {
-
+        startActivity(new Intent(this, BasicMessageChannelActivity.class));
     }
 
     /**

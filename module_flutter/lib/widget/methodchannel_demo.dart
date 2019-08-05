@@ -88,37 +88,50 @@ class _MethodChannelWidgetState extends State<MethodChannelWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(20),
       color: Colors.grey[200],
       child: Column(
         children: <Widget>[
-          RaisedButton(
-            child: Text(
-              '获取设备信息（String传递数据）',
-              style: TextStyle(fontSize: 16),
-            ),
-            onPressed: _getDeviceInfoByString,
-          ),
-          RaisedButton(
-            child: Text(
-              '获取设备信息（Map传递数据）',
-              style: TextStyle(fontSize: 16),
-            ),
-            onPressed: _getDeviceInfoByMap,
-          ),
-          RaisedButton(
-            child: Text(
-              '获取设备信息（List传递数据）',
-              style: TextStyle(fontSize: 16),
-            ),
-            onPressed: _getDeviceInfoByList,
-          ),
-          RaisedButton(
-            child: Text(
-              '获取设备信息（传递数据复杂数据）',
-              style: TextStyle(fontSize: 16),
-            ),
-            onPressed: _getDeviceInfoByObject,
-          ),
+          Row(children: <Widget>[
+            Expanded(
+              child: RaisedButton(
+                child: Text(
+                  '获取设备信息（String传递数据）',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onPressed: _getDeviceInfoByString,
+              ),)
+          ],),
+          Row(children: <Widget>[
+            Expanded(
+              child: RaisedButton(
+                child: Text(
+                  '获取设备信息（Map传递数据）',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onPressed: _getDeviceInfoByMap,
+              ),)
+          ],),
+          Row(children: <Widget>[
+            Expanded(
+              child: RaisedButton(
+                child: Text(
+                  '获取设备信息（List传递数据）',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onPressed: _getDeviceInfoByList,
+              ),)
+          ],),
+          Row(children: <Widget>[
+            Expanded(
+              child: RaisedButton(
+                child: Text(
+                  '获取设备信息（传递数据复杂数据）',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onPressed: _getDeviceInfoByObject,
+              ),)
+          ],),
           Text(
             _msg,
             style: TextStyle(
